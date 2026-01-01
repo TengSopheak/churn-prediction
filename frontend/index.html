@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction Dashboard</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link href="main.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-slate-50">
+    <!-- Header -->
+    <header class="bg-slate-800 text-white py-6 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">Customer Churn Prediction Dashboard</h1>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Form View -->
+        <div id="formView" class="bg-white rounded-lg shadow-lg p-8">
+            <form id="predictionForm" method="post">
+                <!-- Section 1: Demographics -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold text-slate-900 mb-4 border-b pb-2">Demographics</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-slate-700 mb-1">Gender</label>
+                            <select id="gender" name="gender" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="SeniorCitizen" class="block text-sm font-medium text-slate-700 mb-1">Senior Citizen</label>
+                            <select id="SeniorCitizen" name="SeniorCitizen" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="0">0 (No)</option>
+                                <option value="1">1 (Yes)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Partner" class="block text-sm font-medium text-slate-700 mb-1">Partner</label>
+                            <select id="Partner" name="Partner" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Dependents" class="block text-sm font-medium text-slate-700 mb-1">Dependents</label>
+                            <select id="Dependents" name="Dependents" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Account -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold text-slate-900 mb-4 border-b pb-2">Account</h2>
+                    <div>
+                        <label for="tenure" class="block text-sm font-medium text-slate-700 mb-1">Tenure (months)</label>
+                        <input type="number" id="tenure" name="tenure" min="0" required placeholder="Number of months" class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+
+                <!-- Section 3: Phone Services -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold text-slate-900 mb-4 border-b pb-2">Phone Services</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="PhoneService" class="block text-sm font-medium text-slate-700 mb-1">Phone Service</label>
+                            <select id="PhoneService" name="PhoneService" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="MultipleLines" class="block text-sm font-medium text-slate-700 mb-1">Multiple Lines</label>
+                            <select id="MultipleLines" name="MultipleLines" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No phone service">No phone service</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Internet Services -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold text-slate-900 mb-4 border-b pb-2">Internet Services</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="InternetService" class="block text-sm font-medium text-slate-700 mb-1">Internet Service</label>
+                            <select id="InternetService" name="InternetService" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="DSL">DSL</option>
+                                <option value="Fiber optic">Fiber optic</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="OnlineSecurity" class="block text-sm font-medium text-slate-700 mb-1">Online Security</label>
+                            <select id="OnlineSecurity" name="OnlineSecurity" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="OnlineBackup" class="block text-sm font-medium text-slate-700 mb-1">Online Backup</label>
+                            <select id="OnlineBackup" name="OnlineBackup" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="DeviceProtection" class="block text-sm font-medium text-slate-700 mb-1">Device Protection</label>
+                            <select id="DeviceProtection" name="DeviceProtection" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="TechSupport" class="block text-sm font-medium text-slate-700 mb-1">Tech Support</label>
+                            <select id="TechSupport" name="TechSupport" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="StreamingTV" class="block text-sm font-medium text-slate-700 mb-1">Streaming TV</label>
+                            <select id="StreamingTV" name="StreamingTV" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="StreamingMovies" class="block text-sm font-medium text-slate-700 mb-1">Streaming Movies</label>
+                            <select id="StreamingMovies" name="StreamingMovies" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="No internet service">No internet service</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Billing & Contract -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-semibold text-slate-900 mb-4 border-b pb-2">Billing & Contract</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Contract" class="block text-sm font-medium text-slate-700 mb-1">Contract</label>
+                            <select id="Contract" name="Contract" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Month-to-month">Month-to-month</option>
+                                <option value="One year">One year</option>
+                                <option value="Two year">Two year</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="PaperlessBilling" class="block text-sm font-medium text-slate-700 mb-1">Paperless Billing</label>
+                            <select id="PaperlessBilling" name="PaperlessBilling" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="PaymentMethod" class="block text-sm font-medium text-slate-700 mb-1">Payment Method</label>
+                            <select id="PaymentMethod" name="PaymentMethod" required class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select...</option>
+                                <option value="Electronic check">Electronic check</option>
+                                <option value="Mailed check">Mailed check</option>
+                                <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                                <option value="Credit card (automatic)">Credit card (automatic)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="MonthlyCharges" class="block text-sm font-medium text-slate-700 mb-1">Monthly Charges</label>
+                            <input type="number" id="MonthlyCharges" name="MonthlyCharges" step="0.01" min="0" required placeholder="Monthly charge amount" class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="TotalCharges" class="block text-sm font-medium text-slate-700 mb-1">Total Charges</label>
+                            <input type="number" id="TotalCharges" name="TotalCharges" step="0.01" min="0" required placeholder="Total charges to date" class="w-full px-3 py-2 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-6">
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md transition duration-200">
+                        Predict Churn Risk
+                    </button>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="mt-4 hidden bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md">
+                    <p id="errorText"></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Result View -->
+        <div id="resultView" class="hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8 text-center max-w-2xl mx-auto">
+                <!-- Badge -->
+                <div class="mb-4">
+                    <span id="resultBadge" class="inline-block px-4 py-2 rounded-full text-sm font-semibold"></span>
+                </div>
+
+                <!-- Title -->
+                <h2 id="resultTitle" class="text-3xl font-bold mb-2"></h2>
+
+                <!-- Subtitle -->
+                <p id="resultSubtitle" class="text-lg text-slate-600 mb-6"></p>
+
+                <!-- Confidence -->
+                <div class="mb-8">
+                    <div class="text-6xl font-bold mb-2" id="resultConfidence"></div>
+                    <p class="text-slate-600">Confidence Level</p>
+                </div>
+
+                <!-- Back Button -->
+                <button id="backBtn" class="bg-slate-600 hover:bg-slate-700 text-white font-semibold py-3 px-8 rounded-md transition duration-200">
+                    Make Another Prediction
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

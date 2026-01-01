@@ -1,0 +1,54 @@
+{
+    "SeniorCitizen": {
+        "No": 0,
+        "Yes": 1
+    },
+    "Partner": {
+        "No": 0,
+        "Yes": 1
+    },
+    "Dependents": {
+        "No": 0,
+        "Yes": 1
+    },
+    "InternetService": {
+        "No": 0,
+        "DSL": 1,
+        "Fiber optic": 2
+    },
+    "OnlineBackup": {
+        "No internet service": 0,
+        "No": 1,
+        "Yes": 2
+    },
+    "DeviceProtection": {
+        "No internet service": 0,
+        "No": 1,
+        "Yes": 2
+    },
+    "StreamingTV": {
+        "No internet service": 0,
+        "No": 1,
+        "Yes": 2
+    },
+    "StreamingMovies": {
+        "No internet service": 0,
+        "No": 1,
+        "Yes": 2
+    },
+    "Contract": {
+        "Month-to-month": 0,
+        "One year": 1,
+        "Two year": 2
+    },
+    "PaperlessBilling": {
+        "No": 0,
+        "Yes": 1
+    },
+    "PaymentMethod": {
+        "Electronic check": 0,
+        "Mailed check": 1,
+        "Bank transfer (automatic)": 2,
+        "Credit card (automatic)": 3
+    }
+}

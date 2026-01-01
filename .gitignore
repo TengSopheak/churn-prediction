@@ -1,1 +1,6 @@
-Note.docx
+*.docx
+venv/
+__pycache__/
+.env
+.idea/
+node_modules/
