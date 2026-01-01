@@ -1,5 +1,5 @@
 // Global variables
-const API_URL = 'http://localhost:8000/predict';
+const API_URL = API_URL;
 const formView = document.getElementById('formView');
 const resultView = document.getElementById('resultView');
 const predictionForm = document.getElementById('predictionForm');
