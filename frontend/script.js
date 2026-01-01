@@ -1,5 +1,5 @@
 // Global variables
-const API_URL = import.meta.env.API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 const formView = document.getElementById('formView');
 const resultView = document.getElementById('resultView');
 const predictionForm = document.getElementById('predictionForm');
