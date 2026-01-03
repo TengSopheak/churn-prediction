@@ -139,7 +139,7 @@ We evaluated models using Accuracy, Precision, Recall, and F1-Score.
 | SVM | 0.7395 | 0.7951 | 0.7395 | 0.7530 |
 | KNN | 0.7062 | 0.7565 | 0.7062 | 0.7206 |
 | Naive Bayes | 0.7040 | 0.7923 | 0.7040 | 0.7212 |
-| XGBoost | 0.7729 | 0.7840 | 0.7729 | 0.7773 |
+| **XGBoost** | **0.7729** | **0.7840** | **0.7729** | **0.7773** |
 | **LightGBM** | **0.7708** | **0.7803** | **0.7708** | **0.7747** |
 
 * **Best Model:** LightGBM and XGBoost performed very similarly, with strong balance across precision and recall.
