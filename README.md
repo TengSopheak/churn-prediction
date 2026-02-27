@@ -1,6 +1,6 @@
 # 📡 Full Stack Customer Churn Prediction System
 
-This is a complete, full-stack machine learning project designed to help a fictional telecom company retain their customers.
+This is a complete, full-stack machine learning project (Classification) designed to help a fictional telecom company retain their customers.
 
 The goal is simple: **Predict whether a customer is likely to leave (churn) and provide a confidence score for that prediction.**
 
